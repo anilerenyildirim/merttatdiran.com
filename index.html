@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mert Tatdıran | Portfolio</title>
+  <title>Mert Tatdıran</title>
+  <link rel="icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -43,6 +44,7 @@
 
     body::before {
       content: "";
+      opacity: 0.08;
       position: fixed;
       inset: 0;
       pointer-events: none;
@@ -737,6 +739,345 @@
       transition: opacity 0.2s ease;
     }
 
+
+
+    /* Intro page added: Raycast-like neon identity screen */
+    .intro-page {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 140px 0 80px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .intro-page::before {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 18% 30%, rgba(59,130,246,0.24), transparent 28%),
+        radial-gradient(circle at 78% 26%, rgba(103,232,249,0.18), transparent 24%),
+        radial-gradient(circle at 52% 86%, rgba(139,92,246,0.22), transparent 30%);
+      filter: blur(18px);
+      z-index: -3;
+    }
+
+    .intro-page::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(115deg, transparent 0 25%, rgba(59,130,246,0.08) 38%, transparent 52%),
+        linear-gradient(245deg, transparent 0 28%, rgba(139,92,246,0.08) 42%, transparent 58%);
+      opacity: 0.9;
+      z-index: -2;
+    }
+
+    .intro-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.95;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      align-items: center;
+      gap: 58px;
+    }
+
+    .intro-copy .badge {
+      box-shadow: inset 0 0 26px rgba(59,130,246,0.08), 0 0 45px rgba(59,130,246,0.1);
+    }
+
+    .intro-copy h1 {
+      margin-top: 24px;
+      max-width: 650px;
+      font-size: clamp(46px, 6.5vw, 86px);
+      line-height: 0.94;
+      letter-spacing: -0.075em;
+    }
+
+    .intro-copy p {
+      margin-top: 24px;
+      max-width: 610px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .intro-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .showcase-wrap {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+      perspective: 1200px;
+    }
+
+    .orbital-glow {
+      position: absolute;
+      width: min(92vw, 560px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(from 150deg, transparent 0deg, rgba(103,232,249,0.55) 64deg, rgba(59,130,246,0.16) 115deg, transparent 190deg, rgba(139,92,246,0.42) 255deg, transparent 330deg),
+        radial-gradient(circle, rgba(59,130,246,0.08), transparent 62%);
+      filter: blur(1px) drop-shadow(0 0 34px rgba(59,130,246,0.28));
+      animation: orbitSpin 12s linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes orbitSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    .showcase-card {
+      position: relative;
+      width: min(100%, 520px);
+      min-height: 420px;
+      padding: 34px;
+      border: 1px solid rgba(103,232,249,0.22);
+      border-radius: 44px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.025)),
+        rgba(7,11,22,0.72);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 30px 110px rgba(59,130,246,0.26),
+        0 0 90px rgba(139,92,246,0.20);
+      backdrop-filter: blur(18px);
+      transform-style: preserve-3d;
+      transition: transform 0.18s ease-out;
+      overflow: hidden;
+    }
+
+    .showcase-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at var(--mx, 60%) var(--my, 35%), rgba(103,232,249,0.24), transparent 28%),
+        linear-gradient(135deg, rgba(59,130,246,0.16), transparent 46%, rgba(139,92,246,0.14));
+      opacity: 0.95;
+      pointer-events: none;
+    }
+
+    .showcase-card::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: none;
+    }
+
+    .mini-window,
+    .qbc-panel,
+    .main-logo,
+    .code-mark,
+    .dot-matrix,
+    .neon-sweep {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .mini-window {
+      top: 84px;
+      left: 54px;
+      width: 222px;
+      height: 176px;
+      border: 1px solid rgba(59,130,246,0.45);
+      border-radius: 24px;
+      background: rgba(7,11,22,0.78);
+      box-shadow: 0 0 42px rgba(59,130,246,0.14) inset;
+      padding: 24px;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .window-dots span {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 18px currentColor;
+    }
+
+    .window-dots span:nth-child(1) { color: var(--violet); background: var(--violet); }
+    .window-dots span:nth-child(2) { color: var(--blue); background: var(--blue); }
+    .window-dots span:nth-child(3) { color: var(--cyan); background: var(--cyan); }
+
+    .code-line {
+      height: 8px;
+      border-radius: 999px;
+      margin-top: 12px;
+      background: rgba(59,130,246,0.78);
+      box-shadow: 0 0 16px rgba(59,130,246,0.28);
+    }
+
+    .code-line:nth-child(3) { width: 82%; background: rgba(103,232,249,0.78); }
+    .code-line:nth-child(4) { width: 48%; }
+    .code-line:nth-child(5) { width: 68%; background: rgba(139,92,246,0.82); }
+    .code-line:nth-child(6) { width: 36%; background: rgba(103,232,249,0.78); }
+
+    .qbc-panel {
+      top: 118px;
+      right: 52px;
+      width: 178px;
+      height: 128px;
+      border: 1px solid rgba(103,232,249,0.24);
+      border-radius: 18px;
+      background: rgba(7,11,22,0.74);
+      display: grid;
+      place-items: center;
+      color: rgba(103,232,249,0.82);
+      font-weight: 800;
+      font-size: 32px;
+      letter-spacing: -0.06em;
+    }
+
+    .qbc-panel::after {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 30px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      box-shadow: 0 0 18px rgba(103,232,249,0.35);
+    }
+
+    .main-logo {
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: clamp(92px, 11vw, 148px);
+      font-weight: 900;
+      letter-spacing: -0.14em;
+      color: #eaf6ff;
+      text-shadow: 0 0 26px rgba(103,232,249,0.42), 0 0 80px rgba(59,130,246,0.34);
+      filter: drop-shadow(0 18px 28px rgba(0,0,0,0.3));
+    }
+
+    .main-logo span {
+      font-size: 0.72em;
+      letter-spacing: -0.18em;
+      color: var(--cyan);
+      transform: translateY(14px);
+      text-shadow: 0 0 22px rgba(103,232,249,0.65);
+    }
+
+    .code-mark {
+      right: 58px;
+      bottom: 96px;
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--cyan);
+      text-shadow: 0 0 32px rgba(103,232,249,0.62);
+    }
+
+    .dot-matrix {
+      right: 46px;
+      bottom: 50px;
+      width: 150px;
+      height: 90px;
+      opacity: 0.65;
+      background-image: radial-gradient(circle, rgba(103,232,249,0.86) 1.5px, transparent 2px);
+      background-size: 14px 14px;
+      mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+    }
+
+    .neon-sweep {
+      left: 44px;
+      right: 42px;
+      bottom: 86px;
+      height: 150px;
+      border-bottom: 9px solid rgba(139,92,246,0.78);
+      border-radius: 50%;
+      transform: rotate(-13deg);
+      filter: drop-shadow(0 0 20px rgba(139,92,246,0.65));
+    }
+
+    .intro-scroll {
+      position: absolute;
+      left: 50%;
+      bottom: 28px;
+      transform: translateX(-50%);
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      color: var(--muted);
+      font-size: 12px;
+      z-index: 5;
+    }
+
+    .intro-scroll span:first-child {
+      width: 1px;
+      height: 34px;
+      background: linear-gradient(transparent, var(--blue), transparent);
+      box-shadow: 0 0 18px rgba(59,130,246,0.75);
+    }
+
+    .floating-scroll-btn {
+      position: fixed;
+      right: 28px;
+      bottom: 28px;
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(103,232,249,0.25);
+      border-radius: 50%;
+      background: rgba(7,11,22,0.62);
+      color: #dbeafe;
+      box-shadow: 0 0 34px rgba(59,130,246,0.16);
+      backdrop-filter: blur(14px);
+      z-index: 90;
+      transition: 0.25s ease;
+    }
+
+    .floating-scroll-btn:hover {
+      transform: translateY(-3px);
+      border-color: rgba(103,232,249,0.52);
+      box-shadow: 0 0 50px rgba(59,130,246,0.28);
+    }
+
+    @media (max-width: 920px) {
+      .intro-grid { grid-template-columns: 1fr; }
+      .showcase-wrap { min-height: 500px; }
+      .showcase-card { min-height: 390px; }
+    }
+
+    @media (max-width: 620px) {
+      .intro-page { padding-top: 120px; }
+      .mini-window { left: 24px; width: 190px; }
+      .qbc-panel { right: 24px; width: 140px; font-size: 25px; }
+      .main-logo { font-size: 90px; }
+      .code-mark { right: 30px; bottom: 92px; font-size: 50px; }
+      .floating-scroll-btn { right: 18px; bottom: 18px; }
+    }
+
     @media (max-width: 920px) {
       .nav-links,
       .desktop-contact {
@@ -794,7 +1135,7 @@
   <header class="navbar">
     <div class="container">
       <div class="nav-inner">
-        <a href="#home" class="brand">
+        <a href="#intro" class="brand">
           <div class="brand-icon"><img src="profile.jpeg" alt=""></div>
           <div>
             <div class="brand-title">Mert Tatdıran</div>
@@ -803,7 +1144,8 @@
         </a>
 
         <nav class="nav-links" id="navLinks">
-          <a href="#home" class="active">Home</a>
+          <a href="#intro" class="active">Intro</a>
+        <a href="#home">Home</a>
           <a href="#projects">Projects</a>
           <a href="#stack">Stack</a>
           <a href="#experience">Experience</a>
@@ -826,6 +1168,44 @@
   </header>
 
   <main>
+
+    <section class="intro-page" id="intro">
+      <canvas class="intro-canvas" id="introCanvas"></canvas>
+      <div class="container intro-grid">
+        <div class="intro-copy reveal">
+          <span class="badge">Hello, I'm Mert</span>
+          <h1>Digital systems with <span class="gradient-text">neon energy</span> and clean product feeling.</h1>
+          <p>
+            A new opening page built to match the existing blue, cyan and violet palette. The logo area reacts to mouse movement with flowing particles, soft neon trails and dynamic light.
+          </p>
+          <div class="intro-actions">
+            <a href="#home" class="btn btn-primary">Enter Portfolio ↓</a>
+            <a href="#projects" class="btn btn-ghost">View Projects ↗</a>
+          </div>
+        </div>
+
+        <div class="showcase-wrap reveal" id="showcaseWrap">
+          <div class="orbital-glow"></div>
+          <div class="showcase-card" id="showcaseCard">
+            <div class="mini-window">
+              <div class="window-dots"><span></span><span></span><span></span></div>
+              <div class="code-line"></div>
+              <div class="code-line"></div>
+              <div class="code-line"></div>
+              <div class="code-line"></div>
+              <div class="code-line"></div>
+            </div>
+            <div class="qbc-panel">Python</div>
+            <div class="neon-sweep"></div>
+            <div class="main-logo">M<span></span></div>
+            <div class="code-mark">&lt;/&gt;</div>
+            <div class="dot-matrix"></div>
+          </div>
+        </div>
+      </div>
+      <a href="#home" class="intro-scroll" aria-label="Scroll to portfolio"><span></span><span>Scroll</span></a>
+    </section>
+
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="reveal">
@@ -849,7 +1229,7 @@
               <span>Core Areas</span>
             </div>
             <div class="stat">
-              <strong>24/7</strong>
+              <strong>7/24</strong>
               <span>Builder Mindset</span>
             </div>
           </div>
@@ -929,7 +1309,7 @@
               <h3>Zombie AI System</h3>
               <p>Optimized zombie behavior with detection radius, damage ticks, movement states and multiplayer-aware spawning.</p>
               <div class="tags">
-                <span class="tag">Lua</span><span class="tag">AI Logic</span><span class="tag">Optimization</span><span class="tag">FiveM</span>
+                <span class="tag">Lua</span><span class="tag">AI Logic</span><span class="tag">QBCore</span><span class="tag">FiveM</span>
               </div>
             </div>
           </article>
@@ -941,10 +1321,10 @@
                 <span>↗</span>
               </div>
               <div class="project-type">Interactive Gameplay</div>
-              <h3>Superpower Mechanics</h3>
+              <h3>Superpower Gameplay Mechanics</h3>
               <p>Telekinesis, illusion clones, delayed movement imitation and synchronized effect-based gameplay mechanics.</p>
               <div class="tags">
-                <span class="tag">Lua</span><span class="tag">Particles</span><span class="tag">Animation</span><span class="tag">Gameplay</span>
+                <span class="tag">Lua</span><span class="tag">Fivem</span><span class="tag">QBCore</span><span class="tag">Gameplay</span>
               </div>
             </div>
           </article>
@@ -956,7 +1336,7 @@
                 <span>↗</span>
               </div>
               <div class="project-type">Desktop / Data App</div>
-              <h3>Corporate Data Dashboard</h3>
+              <h3>Corporate B.I. Data Dashboard</h3>
               <p>A dashboard-style data processing tool with charts, filtering, database structure and Excel export support.</p>
               <div class="tags">
                 <span class="tag">Python</span><span class="tag">SQLite</span><span class="tag">Charts</span><span class="tag">Excel</span>
@@ -971,7 +1351,7 @@
       <div class="container">
         <div class="section-title reveal">
           <div class="eyebrow">Tech Stack</div>
-          <h2>Tools I use to build</h2>
+          <h2>Tools I Use To Build</h2>
           <p>A focused stack for game scripting, modern frontend, data processing and UI-focused product development.</p>
         </div>
 
@@ -1068,6 +1448,7 @@
       </div>
     </section>
   </main>
+  <a href="#intro" class="floating-scroll-btn" id="floatingScrollBtn" aria-label="Scroll">↑</a>
 
   <script>
     const mobileToggle = document.getElementById("mobileToggle");
@@ -1149,6 +1530,102 @@
         }
       });
     });
+
+
+
+    const introCanvas = document.getElementById("introCanvas");
+    const introCtx = introCanvas.getContext("2d");
+    const showcaseCard = document.getElementById("showcaseCard");
+    const floatingScrollBtn = document.getElementById("floatingScrollBtn");
+    let introParticles = [];
+    let mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+
+    function resizeIntroCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      introCanvas.width = window.innerWidth * dpr;
+      introCanvas.height = window.innerHeight * dpr;
+      introCanvas.style.width = window.innerWidth + "px";
+      introCanvas.style.height = window.innerHeight + "px";
+      introCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function seedIntroParticles() {
+      introParticles = Array.from({ length: 78 }, (_, i) => ({
+        angle: (Math.PI * 2 / 78) * i,
+        radius: 120 + Math.random() * 250,
+        size: 1 + Math.random() * 2.5,
+        speed: 0.002 + Math.random() * 0.005,
+        drift: Math.random() * Math.PI * 2,
+        color: Math.random() > 0.5 ? "103,232,249" : (Math.random() > 0.5 ? "59,130,246" : "139,92,246")
+      }));
+    }
+
+    function animateIntroParticles() {
+      introCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const centerX = window.innerWidth * 0.71;
+      const centerY = window.innerHeight * 0.52;
+      const pullX = (mouse.x - centerX) * 0.18;
+      const pullY = (mouse.y - centerY) * 0.18;
+
+      introParticles.forEach((p, index) => {
+        p.angle += p.speed;
+        p.drift += 0.01;
+        const wave = Math.sin(p.drift) * 22;
+        const x = centerX + pullX + Math.cos(p.angle) * (p.radius + wave);
+        const y = centerY + pullY + Math.sin(p.angle * 0.78) * (p.radius * 0.46 + wave);
+        const alpha = 0.22 + Math.sin(p.drift + index) * 0.18;
+
+        introCtx.beginPath();
+        introCtx.arc(x, y, p.size, 0, Math.PI * 2);
+        introCtx.fillStyle = `rgba(${p.color}, ${alpha})`;
+        introCtx.shadowBlur = 18;
+        introCtx.shadowColor = `rgba(${p.color}, 0.85)`;
+        introCtx.fill();
+
+        if (index % 3 === 0) {
+          introCtx.beginPath();
+          introCtx.moveTo(x, y);
+          introCtx.lineTo(x - Math.cos(p.angle) * 42, y - Math.sin(p.angle) * 22);
+          introCtx.strokeStyle = `rgba(${p.color}, 0.12)`;
+          introCtx.lineWidth = 1;
+          introCtx.stroke();
+        }
+      });
+
+      introCtx.shadowBlur = 0;
+      requestAnimationFrame(animateIntroParticles);
+    }
+
+    window.addEventListener("resize", resizeIntroCanvas);
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+
+      if (showcaseCard) {
+        const rect = showcaseCard.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        if (px >= 0 && px <= 1 && py >= 0 && py <= 1) {
+          showcaseCard.style.setProperty("--mx", `${px * 100}%`);
+          showcaseCard.style.setProperty("--my", `${py * 100}%`);
+          showcaseCard.style.transform = `rotateY(${(px - 0.5) * 10}deg) rotateX(${(0.5 - py) * 10}deg)`;
+        }
+      }
+    });
+
+    showcaseCard?.addEventListener("mouseleave", () => {
+      showcaseCard.style.transform = "rotateY(0deg) rotateX(0deg)";
+    });
+
+    window.addEventListener("scroll", () => {
+      const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
+      floatingScrollBtn.textContent = nearBottom ? "↑" : "↓";
+      floatingScrollBtn.href = nearBottom ? "#intro" : "#contact";
+    });
+
+    resizeIntroCanvas();
+    seedIntroParticles();
+    animateIntroParticles();
 
     const cursorGlow = document.getElementById("cursorGlow");
     window.addEventListener("mousemove", (e) => {
