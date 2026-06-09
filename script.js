@@ -330,7 +330,7 @@ setLanguage("en");
 const mobileToggle = document.getElementById("mobileToggle");
 const mobileMenu = document.getElementById("mobileMenu");
 
-mobileToggle.addEventListener("click", () => {
+mobileToggle?.addEventListener("click", () => {
   mobileMenu.classList.toggle("open");
   mobileToggle.textContent = mobileMenu.classList.contains("open") ? "×" : "☰";
 });
@@ -343,11 +343,15 @@ document.querySelectorAll(".mobile-menu a").forEach((link) => {
 });
 
 const commands = {
-  help: "Available commands: about, projects, stack, contact, clear",
-  about: "Mert is a Management Information Systems student building immersive RP systems, modern dashboards, modern websites and their UI designs. If you want to learn more about him, just check the rest of the page. Also he likes rock and metal music so much, here is some meaningful lyrics for you: I returned for you in great dismay, come with me far away to stay :)",
+  help: "Available commands: about, projects, stack, skills, contact, socials, status, theme, clear",
+  about: "Mert is a Management Information Systems student building immersive RP systems, modern dashboards, modern websites and clean UI designs.",
   projects: "Featured projects: QBCore RP Server, Zombie AI System, Superpower Mechanics, Corporate Data Dashboard.",
-  stack: "Core stack: Lua, QBCore, React, Next.js, Html/CSS, Python, SQL, PyQt, Python, Unity, Unreal Engine 5, Canvas of Kings.",
-  contact: "Contact: Email: mert.tatdiran@hotmail.com | GitHub: github.com/merttatd"
+  stack: "Core stack: Lua, QBCore, React, Next.js, HTML/CSS, JavaScript, Python, SQL, PyQt, Unity, Unreal Engine 5, Canvas of Kings.",
+  skills: "Focus areas: gameplay systems, frontend interfaces, database-backed tools, dashboards, data visualization and UI polishing.",
+  contact: "Contact: Email: mert.tatdiran@hotmail.com | GitHub: github.com/merttatd",
+  socials: "GitHub: github.com/merttatd | Email: mert.tatdiran@hotmail.com",
+  status: "Portfolio status: optimized, responsive and ready for section background images.",
+  theme: "Theme: warm dark palette with clear section dividers and editable background image variables."
 };
 
 const terminalForm = document.getElementById("terminalForm");
@@ -360,11 +364,12 @@ function addTerminalLine(text, className = "") {
 
   if (className) line.className = className;
 
+  if (!terminalOutput) return;
   terminalOutput.appendChild(line);
   terminalOutput.scrollTop = terminalOutput.scrollHeight;
 }
 
-terminalForm.addEventListener("submit", (e) => {
+terminalForm?.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const command = terminalInput.value.trim().toLowerCase();
@@ -417,7 +422,7 @@ window.addEventListener("scroll", () => {
 });
 
 const introCanvas = document.getElementById("introCanvas");
-const introCtx = introCanvas.getContext("2d");
+const introCtx = introCanvas?.getContext("2d");
 const showcaseCard = document.getElementById("showcaseCard");
 const floatingScrollBtn = document.getElementById("floatingScrollBtn");
 
@@ -428,6 +433,7 @@ let mouse = {
 };
 
 function resizeIntroCanvas() {
+  if (!introCanvas || !introCtx) return;
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   introCanvas.width = window.innerWidth * dpr;
@@ -455,6 +461,7 @@ function seedIntroParticles() {
 }
 
 function animateIntroParticles() {
+  if (!introCanvas || !introCtx) return;
   introCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
   const centerX = window.innerWidth * 0.71;
@@ -519,6 +526,8 @@ showcaseCard?.addEventListener("mouseleave", () => {
 });
 
 window.addEventListener("scroll", () => {
+  if (!floatingScrollBtn) return;
+
   const nearBottom =
     window.innerHeight + window.scrollY >= document.body.offsetHeight - 120;
 
@@ -600,6 +609,7 @@ document.querySelectorAll(".image-slide img").forEach((img) => {
   img.style.cursor = "zoom-in";
 
   img.addEventListener("click", () => {
+    if (!imageModal || !modalImage) return;
     modalImage.src = img.src;
     modalImage.alt = img.alt || "";
     imageModal.classList.add("active");
@@ -607,20 +617,21 @@ document.querySelectorAll(".image-slide img").forEach((img) => {
   });
 });
 
-imageModal.addEventListener("click", () => {
-  imageModal.classList.remove("active");
+imageModal?.addEventListener("click", () => {
+  imageModal?.classList.remove("active");
   document.body.style.overflow = "";
-  modalImage.src = "";
+  if (modalImage) modalImage.src = "";
 });
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    imageModal.classList.remove("active");
+    imageModal?.classList.remove("active");
     document.body.style.overflow = "";
-    modalImage.src = "";
+    if (modalImage) modalImage.src = "";
   }
 });
 
-resizeIntroCanvas();
-seedIntroParticles();
-animateIntroParticles();
+/* Particle canvas disabled for a cleaner, less AI/neon visual style and better runtime performance. */
+if (introCanvas && introCtx) {
+  introCanvas.setAttribute("aria-hidden", "true");
+}

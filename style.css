@@ -1107,8 +1107,7 @@
 
     .intro-scroll {
       position: absolute;
-      left: 50%;
-      bottom: 28px;
+      left: 15%;
       transform: translateX(-50%);
       display: grid;
       gap: 8px;
@@ -1618,4 +1617,535 @@
 
 .image-modal.active img {
     transform: scale(1);
+}
+
+/* ---------------------------------------------------------
+   Professional visual refinement
+   İçerik ve görseller korunarak neon/AI/parıltı hissi azaltıldı.
+--------------------------------------------------------- */
+:root {
+  --bg: #08111f;
+  --bg-2: #0d1728;
+  --card: rgba(255, 255, 255, 0.055);
+  --card-2: rgba(255, 255, 255, 0.09);
+  --line: rgba(226, 232, 240, 0.12);
+  --text: #f8fafc;
+  --muted: #a8b3c7;
+  --muted-2: #748199;
+  --blue: #4f8df7;
+  --cyan: #7dd3fc;
+  --violet: #8b5cf6;
+  --green: #34d399;
+  --shadow: 0 22px 70px rgba(2, 6, 23, 0.36);
+}
+
+body {
+  background:
+    linear-gradient(180deg, #08111f 0%, #0b1324 45%, #07101d 100%);
+}
+
+body::before,
+body::after,
+.intro-page::before,
+.intro-page::after,
+.intro-canvas,
+.orbital-glow,
+.neon-sweep,
+.dot-matrix {
+  display: none !important;
+}
+
+.navbar {
+  background: rgba(8, 17, 31, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.nav-inner {
+  height: 86px;
+}
+
+.brand-icon,
+.language-toggle:hover,
+.btn-primary,
+.video-gallery,
+.intro-image-gallery,
+.project-image-gallery,
+.project-card,
+.stat,
+.terminal,
+.showcase-card,
+.qbc-panel,
+.contact-card,
+.image-modal img {
+  box-shadow: var(--shadow) !important;
+}
+
+.brand-icon:hover,
+.btn-primary:hover,
+.project-card:hover,
+.image-nav:hover,
+.video-thumb:hover img {
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #f8fafc, #93c5fd);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.intro-page {
+  min-height: 100vh;
+  padding: 132px 0 88px;
+  background:
+    linear-gradient(135deg, rgba(79, 141, 247, 0.09), transparent 34%),
+    linear-gradient(315deg, rgba(125, 211, 252, 0.055), transparent 38%);
+}
+
+.intro-grid {
+  gap: 44px;
+}
+
+.intro-copy h1,
+.hero h1,
+.section-title h2 {
+  letter-spacing: -0.045em;
+}
+
+.intro-copy .badge,
+.badge {
+  box-shadow: none !important;
+}
+
+.btn,
+.language-toggle,
+.nav-links,
+.mobile-menu,
+.video-gallery,
+.image-gallery,
+.project-card,
+.stat,
+.terminal,
+.contact-card,
+.showcase-card,
+.qbc-panel {
+  border-color: var(--line) !important;
+}
+
+.video-gallery,
+.intro-image-gallery,
+.project-image-gallery,
+.project-card,
+.stat,
+.terminal,
+.contact-card,
+.showcase-card,
+.qbc-panel {
+  background: rgba(15, 23, 42, 0.72) !important;
+  backdrop-filter: blur(10px);
+}
+
+.showcase-wrap {
+  min-height: auto !important;
+  gap: 28px !important;
+  justify-content: center !important;
+}
+
+.image-gallery {
+  width: min(100%, 640px) !important;
+}
+
+.image-slider,
+.video-card {
+  background: rgba(8, 17, 31, 0.82) !important;
+}
+
+.image-dots button.active {
+  background: #93c5fd;
+  box-shadow: none !important;
+}
+
+.image-nav:hover {
+  border-color: rgba(147, 197, 253, 0.42);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.28) !important;
+}
+
+.project-card::before,
+.showcase-card::before,
+.showcase-card::after,
+.qbc-panel::after {
+  display: none !important;
+}
+
+.project-card:hover {
+  border-color: rgba(147, 197, 253, 0.28) !important;
+}
+
+.hero,
+.section,
+.contact {
+  position: relative;
+}
+
+.hero::before,
+.section::before,
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent 36%);
+  z-index: -1;
+}
+
+.floating-scroll-btn {
+  box-shadow: 0 16px 42px rgba(2, 6, 23, 0.34) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 920px) {
+  .nav-inner { height: 78px; }
+  .intro-page { padding-top: 116px; }
+  .showcase-wrap { gap: 24px !important; }
+}
+
+/* ---------------------------------------------------------
+   New color palette + editable page background system
+   İçerik ve görseller korunmuştur. Arkaplan resmi eklemek için
+   aşağıdaki --bg-image-* değişkenlerine url(...) verin.
+--------------------------------------------------------- */
+:root {
+  --bg: #0e1210;
+  --bg-2: #151d18;
+  --card: rgba(247, 239, 222, 0.055);
+  --card-2: rgba(247, 239, 222, 0.09);
+  --line: rgba(231, 183, 95, 0.16);
+  --text: #fff7ea;
+  --muted: #c8bfae;
+  --muted-2: #918777;
+  --blue: #c47f3a;
+  --cyan: #8fb996;
+  --violet: #e7b75f;
+  --green: #7fb069;
+  --shadow: 0 24px 76px rgba(0, 0, 0, 0.38);
+
+  /* PAGE / SECTION BACKGROUND IMAGES
+     Örnek: --bg-image-intro: url('backgrounds/intro-bg.jpg'); */
+  --bg-image-intro: url("backgrounds/back3.jpg");
+  --bg-image-home: url("backgrounds/back1.jpg");
+  --bg-image-projects: url("backgrounds/back4.jpg");
+  --bg-image-stack: url("backgrounds/back5.png");
+  --bg-image-experience: url("backgrounds/Back6.png");
+  --bg-image-playground: url("backgrounds/back7.png");
+  --bg-image-contact: url("backgrounds/back8.png");
+
+  --section-bg-position: center;
+  --section-bg-size: cover;
+  --section-bg-repeat: no-repeat;
+  --section-bg-opacity: 0.34;
+  --section-overlay-top: rgba(14, 18, 16, 0.82);
+  --section-overlay-bottom: rgba(14, 18, 16, 0.92);
+}
+
+body {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(196, 127, 58, 0.11), transparent 30%),
+    radial-gradient(circle at 92% 80%, rgba(143, 185, 150, 0.10), transparent 34%),
+    linear-gradient(180deg, #0e1210 0%, #151d18 48%, #0b0f0d 100%);
+}
+
+.navbar {
+  background: rgba(14, 18, 16, 0.90);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #c47f3a, #e7b75f) !important;
+  color: #16110a !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #d8944c, #f0c873) !important;
+}
+
+.language-toggle,
+.nav-links a,
+.btn-ghost,
+.badge,
+.project-card,
+.stack-card,
+.stat,
+.terminal,
+.contact-card,
+.showcase-card,
+.qbc-panel,
+.video-gallery,
+.image-gallery {
+  color: var(--text);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #fff7ea, #e7b75f, #8fb996) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* Assign editable images to each page/section */
+#intro { --section-bg-image: var(--bg-image-intro); }
+#home { --section-bg-image: var(--bg-image-home); }
+#projects { --section-bg-image: var(--bg-image-projects); }
+#stack { --section-bg-image: var(--bg-image-stack); }
+#experience { --section-bg-image: var(--bg-image-experience); }
+#playground { --section-bg-image: var(--bg-image-playground); }
+#contact { --section-bg-image: var(--bg-image-contact); }
+
+#intro,
+#home,
+#projects,
+#stack,
+#experience,
+#playground,
+#contact {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+#intro::before,
+#home::before,
+#projects::before,
+#stack::before,
+#experience::before,
+#playground::before,
+#contact::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: var(--section-bg-opacity);
+  background-image: var(--section-bg-image);
+  background-position: var(--section-bg-position);
+  background-size: var(--section-bg-size);
+  background-repeat: var(--section-bg-repeat);
+}
+
+#intro::after,
+#home::after,
+#projects::after,
+#stack::after,
+#experience::after,
+#playground::after,
+#contact::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, var(--section-overlay-top), var(--section-overlay-bottom)),
+    radial-gradient(circle at 15% 20%, rgba(196, 127, 58, 0.08), transparent 34%),
+    radial-gradient(circle at 85% 75%, rgba(143, 185, 150, 0.07), transparent 34%);
+}
+
+.intro-page {
+  background: transparent !important;
+}
+
+.hero::before,
+.section::before,
+.contact::before {
+  background: none;
+}
+
+.video-gallery,
+.intro-image-gallery,
+.project-image-gallery,
+.project-card,
+.stack-card,
+.stat,
+.terminal,
+.contact-card,
+.showcase-card,
+.qbc-panel {
+  background: rgba(21, 29, 24, 0.78) !important;
+  border-color: rgba(231, 183, 95, 0.16) !important;
+}
+
+.image-slider,
+.video-card,
+.mobile-menu {
+  background: rgba(12, 17, 14, 0.86) !important;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.language-toggle:hover,
+.btn-ghost:hover {
+  background: rgba(231, 183, 95, 0.10) !important;
+  border-color: rgba(231, 183, 95, 0.28) !important;
+}
+
+.image-dots button.active {
+  background: #e7b75f !important;
+}
+
+.project-card:hover,
+.stack-card:hover {
+  border-color: rgba(231, 183, 95, 0.34) !important;
+}
+
+
+/* =========================================================
+   FINAL CLEANUP / OPTIMIZATION PASS
+   - External CSS is now the single source of truth.
+   - Section background images are applied directly to sections.
+   - Page separators are stronger and easier to see.
+   - Content remains above background layers.
+========================================================= */
+:root {
+  --section-separator: rgba(231, 183, 95, 0.36);
+  --section-separator-soft: rgba(143, 185, 150, 0.18);
+  --section-bg-opacity: 0.46;
+  --section-overlay-top: rgba(14, 18, 16, 0.68);
+  --section-overlay-bottom: rgba(14, 18, 16, 0.90);
+}
+
+#intro,
+#home,
+#projects,
+#stack,
+#experience,
+#playground,
+#contact {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: hidden !important;
+  background-image:
+    linear-gradient(180deg, var(--section-overlay-top), var(--section-overlay-bottom)),
+    var(--section-bg-image) !important;
+  background-position: center, var(--section-bg-position) !important;
+  background-size: cover, var(--section-bg-size) !important;
+  background-repeat: no-repeat, var(--section-bg-repeat) !important;
+  border-top: 2px solid var(--section-separator) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 247, 234, 0.08),
+    inset 0 26px 38px rgba(231, 183, 95, 0.035) !important;
+}
+
+#intro {
+  border-top: 0 !important;
+}
+
+#intro::before,
+#home::before,
+#projects::before,
+#stack::before,
+#experience::before,
+#playground::before,
+#contact::before,
+#intro::after,
+#home::after,
+#projects::after,
+#stack::after,
+#experience::after,
+#playground::after,
+#contact::after {
+  display: none !important;
+}
+
+#intro > *,
+#home > *,
+#projects > *,
+#stack > *,
+#experience > *,
+#playground > *,
+#contact > * {
+  position: relative;
+  z-index: 2;
+}
+
+section[id] + section[id]::marker {
+  display: none;
+}
+
+section[id] {
+  outline: 1px solid rgba(231, 183, 95, 0.08);
+  outline-offset: -1px;
+}
+
+section[id]::selection {
+  background: rgba(231, 183, 95, 0.28);
+}
+
+.intro-canvas,
+.orb,
+.glow,
+.particle,
+.ai-grid {
+  display: none !important;
+}
+
+.terminal-output {
+  border-top: 1px solid rgba(231, 183, 95, 0.18);
+  padding-top: 14px;
+}
+
+.terminal-output .user {
+  color: #e7b75f !important;
+}
+
+/* =========================================================
+   LANGUAGE-SAFE BACKGROUND SCALE FIX
+   TR/EN geçişinde yazı uzunluğu section yüksekliğini değiştirse bile
+   arkaplan resmi artık viewport bazlı sabit ölçeklenir.
+========================================================= */
+#intro,
+#home,
+#projects,
+#stack,
+#experience,
+#playground,
+#contact {
+  min-height: 100vh !important;
+  background-image:
+    linear-gradient(180deg, var(--section-overlay-top), var(--section-overlay-bottom)),
+    var(--section-bg-image) !important;
+  background-position:
+    center center,
+    center center !important;
+  background-size:
+    cover,
+    cover !important;
+  background-repeat:
+    no-repeat,
+    no-repeat !important;
+  background-attachment:
+    scroll,
+    fixed !important;
+}
+
+@media (max-width: 900px) {
+  #intro,
+  #home,
+  #projects,
+  #stack,
+  #experience,
+  #playground,
+  #contact {
+    background-attachment:
+      scroll,
+      scroll !important;
+    background-size:
+      cover,
+      max(100vw, 100vh) auto !important;
+  }
 }
